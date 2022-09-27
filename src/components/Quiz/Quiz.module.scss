@@ -4,10 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 0;
+  padding: 4rem 1rem;
+
   .quiz_block {
     width: 600px;
-    height: 350px;
+    min-height: 350px;
     border: 1px solid #ccc;
     display: flex;
     justify-content: space-around;
@@ -39,6 +40,7 @@
       align-items: center;
       justify-content: center;
       height: 70%;
+      margin-top: 20px;
 
       .list {
         width: 100%;
@@ -71,7 +73,7 @@
   }
 
   .section_score {
-    width: 500px;
+    width: 600px;
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -93,28 +95,46 @@
       display: flex;
       justify-content: center;
 
-      ul {
+      .mainList {
         display: flex;
-        flex-direction: column;
-        list-style: none;
-        gap: 10px;
-        li{
-          padding: 4px;
-          padding-left: 12px;
-        }
-        .questionText{
-          font-size: 28px;
-        }
-        .wrong{
-          background-color: #E24742;
-        }
-        .right{
-          background-color: seagreen;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+
+        .innerList {
+          width: 250px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          list-style: none;
+          gap: 10px;
+
+          li {
+            padding: 4px;
+            padding-left: 12px;
+            border-radius: 4px;
+          }
+
+          .questionText {
+            display: flex;
+            font-size: 22px;
+          }
+
+          .wrong {
+            background-color: #E24742;
+          }
+
+          .right {
+            background-color: seagreen;
+          }
         }
       }
+
     }
 
     .restart_btn {
+      width: 100%;
       padding: 12px 16px;
       border: 1px solid #ccc;
       background-color: #42506b;
@@ -131,3 +151,4 @@
     }
   }
 }
+
