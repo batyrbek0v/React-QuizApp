@@ -1,6 +1,6 @@
 import React from 'react'
 import cls from './Quiz.module.scss'
-import { questions } from './Utils/Questions'
+import { questions } from '../Utils/Questions'
 
 const Quiz = () => {
 
