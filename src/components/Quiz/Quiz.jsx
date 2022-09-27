@@ -16,6 +16,7 @@ const Quiz = () => {
     const nextQuestion = currentQuestion + 1
 
     nextQuestion < questions.length ? setCurrentQuestion(nextQuestion) : setShowScore(true)
+
   }
 
   const restartQuiz = () => {
@@ -40,10 +41,10 @@ const Quiz = () => {
                           {questionText}?
                         </h2>
                         {
-                          answerOptions.map(({ answerText, isCorrect }, i) => (
-                            <li
-                              className={isCorrect == false ? cls.wrong : cls.right}
-                            >{answerText}</li>
+                          answerOptions.map(({ answerText, isCorrect }) => (
+                            <li className={!isCorrect ? cls.wrong : cls.right}>
+                              {answerText}
+                            </li>
                           ))
                         }
                       </ul>
@@ -60,21 +61,24 @@ const Quiz = () => {
             </div>
             : <div className={cls.quiz_block}>
               <div className={cls.top}>
-                <h2 className={cls.title}>Qestion {currentQuestion + 1}/{questions.length}</h2>
+                <h2 className={cls.title}>
+                  Qestion {currentQuestion + 1}/{questions.length}
+                </h2>
               </div>
               <div className={cls.question}>
                 <h2>{questions[currentQuestion].questionText}?</h2>
               </div>
               <div className={cls.bottom}>
                 <ul className={cls.list}>
-                  {questions[currentQuestion].answerOptions.map(({ answerText, isCorrect }, index) => (
-                    <li
-                      key={index}
-                      onClick={() => handleAnswer(isCorrect)}
-                    >
-                      {answerText}
-                    </li>
-                  ))}
+                  {questions[currentQuestion].answerOptions
+                    .map(({ answerText, isCorrect }, index) => (
+                      <li
+                        key={index}
+                        onClick={() => handleAnswer(isCorrect)}
+                      >
+                        {answerText}
+                      </li>
+                    ))}
                 </ul>
               </div>
             </div>
@@ -82,7 +86,7 @@ const Quiz = () => {
 
 
       </div>
-    </React.Fragment>
+    </React.Fragment >
   )
 }
 
